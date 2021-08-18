@@ -143,7 +143,7 @@ def get_readable_message():
                     except:
                         pass
                     msg += f'\n<b>🙎 User:</b> <a href="tg://user?id={download.message.from_user.id}">{download.message.from_user.first_name}</a>'
-                    msg += f'\n<b>🙎 User:</b> <a href="tg://user?id={download.message.from_user.id}">{download.message.from_user.id}</a>'
+                    msg += f'<a href="tg://user?id={download.message.from_user.id}">{download.message.from_user.id}</a>'
                     msg += f"\n<b>To ❌ Stop:</b> <code>/{BotCommands.CancelMirror} {download.gid()}</code>"
                 msg += "\n\n"
                 if STATUS_LIMIT is not None:
