@@ -32,7 +32,7 @@ class MirrorStatus:
 
 
 PROGRESS_MAX_SIZE = 100 // 8
-PROGRESS_INCOMPLETE = ['🟩', '🟩', '🟩', '🟩', '🟩', '🟩', '🟩']
+PROGRESS_INCOMPLETE = ['🟢', '🟢', '🟢', '🟢', '🟢', '🟢', '🟢']
 
 SIZE_UNITS = ['B', 'KB', 'MB', 'GB', 'TB', 'PB']
 
@@ -97,10 +97,10 @@ def get_progress_bar_string(status):
     p = min(max(p, 0), 100)
     cFull = p // 8
     cPart = p % 8 - 1
-    p_str = '🟩' * cFull
+    p_str = '🟢' * cFull
     if cPart >= 0:
         p_str += PROGRESS_INCOMPLETE[cPart]
-    p_str += '🟥' * (PROGRESS_MAX_SIZE - cFull)
+    p_str += '🔴' * (PROGRESS_MAX_SIZE - cFull)
     p_str = f"[{p_str}]"
     return p_str
 
@@ -142,7 +142,7 @@ def get_readable_message():
                             f" | <b>🍁 Leechers:</b> <code>{download.torrent_info().num_leechs}</code>"
                     except:
                         pass
-                    msg += f'\n<b>🙎 User:</b> <a href="tg://user?id={download.message.from_user.id}">{download.message.from_user.first_name}/{self.uid</a>'
+                    msg += f'\n<b>🙎 User:</b> <a href="tg://user?id={download.message.from_user.id}">{download.message.from_user.first_name}/{self.uid}</a>'
                     msg += f"\n<b>To ❌ Stop:</b> <code>/{BotCommands.CancelMirror} {download.gid()}</code>"
                 msg += "\n\n"
                 if STATUS_LIMIT is not None:
