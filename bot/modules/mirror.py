@@ -191,7 +191,7 @@ class MirrorListener(listeners.MirrorListeners):
             else:
                 uname = f'<a href="tg://user?id={self.message.from_user.id}">{self.message.from_user.first_name}</a>'
             if uname is not None:
-                msg += f'\n\n🔥 POWERED BY \n☢️ @Gdrive_Mirrors & 🅽Ⓞ🅱🅸🆃🅰'
+                msg += f'\n\n🔥 POWERED BY \n⭐ <a href="https://t.me/gdrive_mirrors">Mirror Club </a>'
                 msg += f'\n\n🙅 User: {uname}'
             try:
                 fs_utils.clean_download(download_dict[self.uid].path())
@@ -291,7 +291,7 @@ def _mirror(bot, update, isTar=False, extract=False):
                         link = file.get_file().file_path
 
     if not bot_utils.is_url(link) and not bot_utils.is_magnet(link):
-        sendMessage('No download source provided', bot, update)
+        sendMessage('No download links provided 😐', bot, update)
         return
 
     try:
@@ -341,9 +341,9 @@ def _mirror(bot, update, isTar=False, extract=False):
     elif bot_utils.is_mega_link(link):
         link_type = get_mega_link_type(link)
         if link_type == "folder" and BLOCK_MEGA_FOLDER:
-            sendMessage("Mga links are blocked! Use / mirror2 command \nand Remember, this is a mega free account. Cannot download above 5 GB at a time 😐. \nif you have a premium account the ping me.", bot, update)
+            sendMessage("Mga links are blocked! \nUse / mirror2 command \nand Remember, this is a mega free account. Cannot download above 5 GB at a time 😐. \nif you have a premium account then ping me.", bot, update)
         elif BLOCK_MEGA_LINKS:
-            sendMessage("Mega links are blocked! Use / mirror2 command \nand Remember, this is a mega free account. Cannot download above 5 GB at a time 😐. \nif you have a premium account the ping me.", bot, update)
+            sendMessage("Mega links are blocked! \nUse / mirror2 command \nand Remember, this is a mega free account. Cannot download above 5 GB at a time 😐. \nif you have a premium account then ping me.", bot, update)
         else:
             mega_dl = MegaDownloadHelper()
             mega_dl.add_download(link, f'{DOWNLOAD_DIR}/{listener.uid}/', listener)
