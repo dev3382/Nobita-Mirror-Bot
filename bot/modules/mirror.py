@@ -191,7 +191,7 @@ class MirrorListener(listeners.MirrorListeners):
             else:
                 uname = f'<a href="tg://user?id={self.message.from_user.id}">{self.message.from_user.first_name}</a>'
             if uname is not None:
-                msg += f'\n\n🔥 POWERED BY \n⭐ <a href="https://t.me/gdrive_mirrors">Mirror Club </a>'
+                msg += f'\n\n🔥 POWERED BY \n⭐ <a href= </a>'
                 msg += f'\n\n🙅 User: {uname}'
             try:
                 fs_utils.clean_download(download_dict[self.uid].path())
